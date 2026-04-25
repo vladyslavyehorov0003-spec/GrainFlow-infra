@@ -1,0 +1,3 @@
+# Environment / secrets — real values only, example stays in git
+.env
+.env.local
