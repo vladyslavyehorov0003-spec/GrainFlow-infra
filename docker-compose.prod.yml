@@ -47,6 +47,7 @@ services:
       JWT_SECRET: ${JWT_SECRET}
       MAIL_PASSWORD: ${MAIL_PASSWORD}
       MAIL_USERNAME: ${MAIL_USERNAME}
+      APP_BASE_URL: ${APP_BASE_URL}
       KAFKA_BOOTSTRAP_SERVERS: kafka:29092
     depends_on:
       kafka:
@@ -113,6 +114,8 @@ services:
     container_name: grainflow-gateway
     restart: unless-stopped
     environment:
+      SPRINGDOC_SWAGGER_UI_ENABLED: "false"
+      SPRINGDOC_API_DOCS_ENABLED: "false"
       SPRING_PROFILES_ACTIVE: prod
       AUTH_SERVICE_URL: http://auth-service:8081
       WAREHOUSE_SERVICE_URL: http://warehouse-service:8082
